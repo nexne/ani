@@ -96,17 +96,16 @@ echo "/bin/false" >> /etc/shells
 /etc/init.d/dropbear restart
 
 # upgrade dropbear 2014
+cd
 apt-get install zlib1g-dev
-#wget https://github.com/ForNesiaFreak/FNS/raw/master/go/dropbear-2014.63.tar.bz2
-#bzip2 -cd dropbear-2014.63.tar.bz2  | tar xvf -
-#cd dropbear-2014.63
-wget https://matt.ucc.asn.au/dropbear/releases/dropbear-2018.76.tar.bz2
-bzip2 -cd dropbear-2018.76.tar.bz2  | tar xvf -
+wget https://raw.githubusercontent.com/nexne/ani/master/dropbear-2018.76.tar.bz2
+bzip2 -cd dropbear-2018.76.tar.bz2 | tar xvf -
 cd dropbear-2018.76
 ./configure
 make && make install
-mv /usr/sbin/dropbear /usr/sbin/dropbear1
+mv /usr/sbin/dropbear /usr/sbin/dropbear.old
 ln /usr/local/sbin/dropbear /usr/sbin/dropbear
+cd && rm -rf dropbear-2018.76 && rm -rf dropbear-2018.76.tar.bz2
 service dropbear restart
 
 # install fail2ban
@@ -162,7 +161,7 @@ sed -i $MYIP2 /etc/stunnel/stunnel.conf
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 service stunnel4 restart
 
-#cd
+cd
 
 #install OpenVPN
 
