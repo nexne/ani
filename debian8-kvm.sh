@@ -297,7 +297,7 @@ wget https://raw.githubusercontent.com/nexne/ani/master/install-premiumscript.sh
 
 # finalizing
 apt-get -y autoremove
-chown -R www-data:www-data /home/vps/public_html
+#chown -R www-data:www-data /home/vps/public_html
 #service nginx start
 #service php5-fpm start
 #service vnstat restart
@@ -319,7 +319,7 @@ wget -O trial "https://raw.githubusercontent.com/nexne/32n64/master/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/nexne/32n64/master/hapus.sh"
 wget -O login "https://raw.githubusercontent.com/nexne/32n64/master/user-login.sh"
 wget -O dropmon "https://raw.githubusercontent.com/nexne/32n64/master/dropmon.sh"
-wget -O user-expired.sh "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/freak/user-expired.sh"
+#wget -O user-expired.sh "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/freak/user-expired.sh"
 #wget -O userlimit.sh "https://raw.githubusercontent.com/suryadewa/fornesiavps/fns/limit.sh"
 wget -O member "https://raw.githubusercontent.com/nexne/32n64/master/user-list.sh"
 wget -O restart "https://raw.githubusercontent.com/nexne/32n64/master/resvis.sh"
@@ -355,7 +355,7 @@ chmod +x ps-mem
 chmod +x about
 chmod +x delete
 chmod +x renew
-chmod +x user-expired.sh
+#chmod +x user-expired.sh
 chmod +x kill
 chmod +x ban
 chmod +x unban
