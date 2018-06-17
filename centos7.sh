@@ -57,7 +57,7 @@ yum -y remove sendmail;
 yum -y remove httpd;
 yum -y remove cyrus-sasl
 
-# update
+# updates
 yum -y update
 
 # install webserver
