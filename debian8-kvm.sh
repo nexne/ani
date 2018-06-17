@@ -431,20 +431,6 @@ echo ""  | tee -a log-install.txt
 echo "----------- Script Created By Steven Indarto(fb.com/stevenindarto2) ------------"
 echo "------------------------------ Modified by 0123456 -----------------------------"
 
-#!/bin/bash
-# OpenVPN road warrior installer for Debian, Ubuntu and CentOS
-
-# This script will work on Debian, Ubuntu, CentOS and probably other distros
-# of the same families, although no support is offered for them. It isn't
-# bulletproof but it will probably work if you simply want to setup a VPN on
-# your Debian/Ubuntu/CentOS box. It has been designed to be as unobtrusive and
-# universal as possible.
-
-###############################################################################################################
-# START_VARIABLE_SECTION
-# This section contains setup and variables
-###############################################################################################################
-
 TCP_SERVICE_AND_CONFIG_NAME="openvpn_tcp"
 UDP_SERVICE_AND_CONFIG_NAME="openvpn_udp"
 
