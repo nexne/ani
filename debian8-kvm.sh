@@ -374,6 +374,63 @@ echo "#* * * * * root /usr/bin/rasakan 2" >> /etc/crontab
 echo "0 3 * * * root /sbin/reboot" > /etc/cron.d/reboot
 service cron restart
 
+#clearing history
+history -c
+
+# info
+clear
+echo " "
+echo "Installation has been completed!!"
+echo " "
+echo "--------------------------- Configuration Setup Server -------------------------"
+echo "                         Copyright HostingTermurah.net                          "
+echo "                        https://www.hostingtermurah.net                         "
+echo "               Created By Steven Indarto(fb.com/stevenindarto2)                 "
+echo "                                Modified by 0123456                             "
+echo "--------------------------------------------------------------------------------"
+echo ""  | tee -a log-install.txt
+echo "Server Information"  | tee -a log-install.txt
+echo "   - Timezone    : Asia/Manila (GMT +8)"  | tee -a log-install.txt
+echo "   - Fail2Ban    : [ON]"  | tee -a log-install.txt
+echo "   - Dflate      : [ON]"  | tee -a log-install.txt
+echo "   - IPtables    : [ON]"  | tee -a log-install.txt
+echo "   - Auto-Reboot : [OFF]"  | tee -a log-install.txt
+echo "   - IPv6        : [OFF]"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "Application & Port Information"  | tee -a log-install.txt
+echo "   - OpenVPN     : TCP 1194 "  | tee -a log-install.txt
+echo "   - OpenSSH     : 22, 143"  | tee -a log-install.txt
+echo "   - Stunnel4    : 442"  | tee -a log-install.txt
+echo "   - Dropbear    : 109, 110, 443"  | tee -a log-install.txt
+echo "   - Squid Proxy : 80, 3128, 8000, 8080, 8888 (limit to IP Server)"  | tee -a log-install.txt
+echo "   - Badvpn      : 7300"  | tee -a log-install.txt
+echo "   - Nginx       : 85"  | tee -a log-install.txt
+echo "   - PPTP VPN    : 1732"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "Server Tools"  | tee -a log-install.txt
+echo "   - htop"  | tee -a log-install.txt
+echo "   - iftop"  | tee -a log-install.txt
+echo "   - mtr"  | tee -a log-install.txt
+echo "   - nethogs"  | tee -a log-install.txt
+echo "   - screenfetch"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "Premium Script Information"  | tee -a log-install.txt
+echo "   To display list of commands: menu"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "   Explanation of scripts and VPS setup" | tee -a log-install.txt
+echo "   follow this link: http://bit.ly/penjelasansetup"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "Important Information"  | tee -a log-install.txt
+echo "   - Download Config OpenVPN : http://$MYIP:85/client.ovpn"  | tee -a log-install.txt
+echo "     Mirror (*.tar.gz)       : http://$MYIP:85/openvpn.tar.gz"  | tee -a log-install.txt
+echo "   - Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
+echo "   - Vnstat                  : http://$MYIP:85/vnstat/"  | tee -a log-install.txt
+echo "   - MRTG                    : http://$MYIP:85/mrtg/"  | tee -a log-install.txt
+echo "   - Installation Log        : cat /root/log-install.txt"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "----------- Script Created By Steven Indarto(fb.com/stevenindarto2) ------------"
+echo "------------------------------ Modified by 0123456 -----------------------------"
+
 #!/bin/bash
 # OpenVPN road warrior installer for Debian, Ubuntu and CentOS
 
@@ -1234,59 +1291,5 @@ if [ "$DNSRESOLVER" = 1 ]; then
 sudo service unbound restart
 fi
 
-#clearing history
-history -c
 
-# info
-clear
-echo " "
-echo "Installation has been completed!!"
-echo " "
-echo "--------------------------- Configuration Setup Server -------------------------"
-echo "                         Copyright HostingTermurah.net                          "
-echo "                        https://www.hostingtermurah.net                         "
-echo "               Created By Steven Indarto(fb.com/stevenindarto2)                 "
-echo "                                Modified by 0123456                             "
-echo "--------------------------------------------------------------------------------"
-echo ""  | tee -a log-install.txt
-echo "Server Information"  | tee -a log-install.txt
-echo "   - Timezone    : Asia/Manila (GMT +8)"  | tee -a log-install.txt
-echo "   - Fail2Ban    : [ON]"  | tee -a log-install.txt
-echo "   - Dflate      : [ON]"  | tee -a log-install.txt
-echo "   - IPtables    : [ON]"  | tee -a log-install.txt
-echo "   - Auto-Reboot : [OFF]"  | tee -a log-install.txt
-echo "   - IPv6        : [OFF]"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Application & Port Information"  | tee -a log-install.txt
-echo "   - OpenVPN     : TCP 1194 "  | tee -a log-install.txt
-echo "   - OpenSSH     : 22, 143"  | tee -a log-install.txt
-echo "   - Stunnel4    : 442"  | tee -a log-install.txt
-echo "   - Dropbear    : 109, 110, 443"  | tee -a log-install.txt
-echo "   - Squid Proxy : 80, 3128, 8000, 8080, 8888 (limit to IP Server)"  | tee -a log-install.txt
-echo "   - Badvpn      : 7300"  | tee -a log-install.txt
-echo "   - Nginx       : 85"  | tee -a log-install.txt
-echo "   - PPTP VPN    : 1732"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Server Tools"  | tee -a log-install.txt
-echo "   - htop"  | tee -a log-install.txt
-echo "   - iftop"  | tee -a log-install.txt
-echo "   - mtr"  | tee -a log-install.txt
-echo "   - nethogs"  | tee -a log-install.txt
-echo "   - screenfetch"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Premium Script Information"  | tee -a log-install.txt
-echo "   To display list of commands: menu"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "   Explanation of scripts and VPS setup" | tee -a log-install.txt
-echo "   follow this link: http://bit.ly/penjelasansetup"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "Important Information"  | tee -a log-install.txt
-echo "   - Download Config OpenVPN : http://$MYIP:85/client.ovpn"  | tee -a log-install.txt
-echo "     Mirror (*.tar.gz)       : http://$MYIP:85/openvpn.tar.gz"  | tee -a log-install.txt
-echo "   - Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
-echo "   - Vnstat                  : http://$MYIP:85/vnstat/"  | tee -a log-install.txt
-echo "   - MRTG                    : http://$MYIP:85/mrtg/"  | tee -a log-install.txt
-echo "   - Installation Log        : cat /root/log-install.txt"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo "----------- Script Created By Steven Indarto(fb.com/stevenindarto2) ------------"
-echo "------------------------------ Modified by 0123456 -----------------------------"
+
