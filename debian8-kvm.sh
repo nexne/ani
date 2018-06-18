@@ -79,10 +79,16 @@ apt-file update
 
 # install screenfetch
 cd
-wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/nexne/ani/master/screenfetch"
-chmod +x /usr/bin/screenfetch
+#wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/nexne/ani/master/screenfetch"
+#chmod +x /usr/bin/screenfetch
+#echo "clear" >> .profile
+#echo "screenfetch" >> .profile
+
+wget 'https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/screenfetch-dev'
+mv screenfetch-dev /usr/bin/screenfetch-dev
+chmod +x /usr/bin/screenfetch-dev
 echo "clear" >> .profile
-echo "screenfetch" >> .profile
+echo "screenfetch-dev" >> .profile
 
 # setting port ssh
 #sed -i '/Port 22/a Port 68' /etc/ssh/sshd_config
