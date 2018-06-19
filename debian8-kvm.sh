@@ -39,7 +39,7 @@ ln -fs /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 cat > /etc/apt/sources.list <<END2
 deb http://security.debian.org/ jessie/updates main contrib non-free
 deb-src http://security.debian.org/ jessie/updates main contrib non-free
-deb http://http.us.debian.org/debian jessie main contrib non-free
+#deb http://http.us.debian.org/debian jessie main contrib non-free
 #deb http://packages.dotdeb.org jessie all
 #deb-src http://packages.dotdeb.org jessie all
 END2
@@ -66,7 +66,7 @@ apt-get update; apt-get -y upgrade;
 #apt-get -y install build-essential
 #apt-get -y install libio-pty-perl libauthen-pam-perl apt-show-versions
 
-apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs openvpn less screen psmisc apt-file whois ptunnel ngrep mtr git zsh unzip unrar rsyslog debsums rkhunter
+apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs less screen psmisc apt-file whois ptunnel ngrep mtr git zsh unzip unrar rsyslog debsums rkhunter
 apt-get -y install build-essential
 apt-get -y install libio-pty-perl libauthen-pam-perl apt-show-versions
 
@@ -76,10 +76,6 @@ sysv-rc-conf exim4 off
 
 # update apt-file
 apt-file update
-
-# setting vnstat
-#vnstat -u -i eth0
-#service vnstat restart
 
 # install screenfetch
 cd
@@ -95,14 +91,15 @@ sed -i 's/Port 22/Port  22/g' /etc/ssh/sshd_config
 service ssh restart
 
 # install dropbear
-apt-get -y install dropbear
+apt-get install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=444/g' /etc/default/dropbear
 #sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109 -p 110"/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 442 -p 90 -p 993 -p 995 -p 777 -p 143 -p 109 -p 110 -p 192 -p 427 -p 625 -p 1220 -K 3"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
-service dropbear restart
-#Upgrade to Dropbear 2018
+/etc/init.d/dropbear restart
+
+# upgrade dropbear 2014
 cd
 apt-get install zlib1g-dev
 wget https://raw.githubusercontent.com/nexne/ani/master/dropbear-2018.76.tar.bz2
@@ -114,19 +111,6 @@ mv /usr/sbin/dropbear /usr/sbin/dropbear.old
 ln /usr/local/sbin/dropbear /usr/sbin/dropbear
 cd && rm -rf dropbear-2018.76 && rm -rf dropbear-2018.76.tar.bz2
 service dropbear restart
-
-# install vnstat gui
-#cd /home/vps/public_html/
-#wget https://raw.githubusercontent.com/nexne/ani/master/vnstat_php_frontend-1.5.1.tar.gz
-#tar xf vnstat_php_frontend-1.5.1.tar.gz
-#rm vnstat_php_frontend-1.5.1.tar.gz
-#mv vnstat_php_frontend-1.5.1 vnstat
-#cd vnstat
-#sed -i "s/\$iface_list = array('eth0', 'sixxs');/\$iface_list = array('eth0');/g" config.php
-#sed -i "s/\$language = 'nl';/\$language = 'en';/g" config.php
-#sed -i 's/Internal/Internet/g' config.php
-#sed -i '/SixXS IPv6/d' config.php
-cd
 
 # install fail2ban
 apt-get -y install fail2ban
@@ -181,7 +165,6 @@ sed -i $MYIP2 /etc/stunnel/stunnel.conf
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 service stunnel4 restart
 
-# install webmin
 cd
 
 #install OpenVPN
@@ -297,7 +280,7 @@ service dropbear restart
 
 # download script
 cd
-wget https://raw.githubusercontent.com/nexne/ani/master/install-premiumscript.sh -O - -o /dev/null|sh
+wget https://raw.githubusercontent.com/nexne/ani/master/updates/install-premiumscript.sh -O - -o /dev/null|sh
 
 # finalizing
 apt-get -y autoremove
@@ -317,20 +300,12 @@ sysv-rc-conf rc.local on
 
 # download script
 cd /usr/bin
-#wget -O menu "https://raw.githubusercontent.com/nexne/32n64/master/menu.sh"
 wget -O usernew "https://raw.githubusercontent.com/nexne/32n64/master/usernew.sh"
 wget -O trial "https://raw.githubusercontent.com/nexne/32n64/master/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/nexne/32n64/master/hapus.sh"
-#wget -O login "https://raw.githubusercontent.com/nexne/32n64/master/user-login.sh"
-#wget -O dropmon "https://raw.githubusercontent.com/nexne/32n64/master/dropmon.sh"
-#wget -O user-expired.sh "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/freak/user-expired.sh"
-#wget -O userlimit.sh "https://raw.githubusercontent.com/suryadewa/fornesiavps/fns/limit.sh"
+wget -O login "https://raw.githubusercontent.com/nexne/32n64/master/user-login.sh"
 wget -O member "https://raw.githubusercontent.com/nexne/32n64/master/user-list.sh"
-#wget -O restart "https://raw.githubusercontent.com/nexne/32n64/master/resvis.sh"
-#wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
-#wget -O bench-network "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/bench-network.sh"
-#wget -O ps-mem "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/ps_mem.py"
-#wget -O about "https://raw.githubusercontent.com/nexne/32n64/master/about.sh"
+wget -O bench-network "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/bench-network.sh"
 wget -O delete "https://raw.githubusercontent.com/nexne/32n64/master/delete.sh"
 wget -O renew "https://raw.githubusercontent.com/nexne/32n64/master/renew.sh"
 wget -O kill "https://raw.githubusercontent.com/nexne/32n64/master/kill.sh"
@@ -339,27 +314,18 @@ wget -O unban "https://raw.githubusercontent.com/nexne/32n64/master/unban.sh"
 wget -O log "https://raw.githubusercontent.com/nexne/32n64/master/log.sh"
 wget -O rasakan "https://raw.githubusercontent.com/nexne/32n64/master/rasakan.sh"
 wget -O log1 "https://raw.githubusercontent.com/nexne/32n64/master/log1.sh"
-echo "0 0 * * * root /root/user-expired.sh" > /etc/cron.d/user-expired
 #echo "0 0 * * * root /usr/bin/expired" > /etc/cron.d/expired
 echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
 echo "#* * * * * service dropbear restart" > /etc/cron.d/dropbear
-chmod +x menu
 chmod +x usernew
 chmod +x trial
 chmod +x hapus
 chmod +x login
-#chmod +x dropmon
-#chmod +x user-expired
-#chmod +x userlimit.sh
 chmod +x member
-chmod +x restart
-#chmod +x speedtest
-#chmod +x bench-network
+chmod +x bench-network
 chmod +x ps-mem
-#chmod +x about
 chmod +x delete
 chmod +x renew
-#chmod +x user-expired.sh
 chmod +x kill
 chmod +x ban
 chmod +x unban
@@ -404,8 +370,8 @@ echo ""  | tee -a log-install.txt
 echo "Application & Port Information"  | tee -a log-install.txt
 echo "   - OpenVPN     : TCP 1194 "  | tee -a log-install.txt
 echo "   - OpenSSH     : 22, 143"  | tee -a log-install.txt
-echo "   - Stunnel4    : 442"  | tee -a log-install.txt
-echo "   - Dropbear    : 109, 110, 443"  | tee -a log-install.txt
+echo "   - Stunnel4    : 443"  | tee -a log-install.txt
+echo "   - Dropbear    : 109, 110, 442"  | tee -a log-install.txt
 echo "   - Squid Proxy : 80, 3128, 8000, 8080, 8888 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn      : 7300"  | tee -a log-install.txt
 echo "   - Nginx       : 85"  | tee -a log-install.txt
@@ -434,6 +400,3 @@ echo "   - Installation Log        : cat /root/log-install.txt"  | tee -a log-in
 echo ""  | tee -a log-install.txt
 echo "----------- Script Created By Steven Indarto(fb.com/stevenindarto2) ------------"
 echo "------------------------------ Modified by 0123456 -----------------------------"
-
-
-
