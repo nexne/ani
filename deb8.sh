@@ -61,10 +61,14 @@ apt-get update; apt-get -y upgrade;
 #apt-get -y install nginx php5-fpm php5-cli
 
 # install essential package
-echo "mrtg mrtg/conf_mods boolean true" | debconf-set-selections
+#echo "mrtg mrtg/conf_mods boolean true" | debconf-set-selections
+#apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs openvpn vnstat less screen psmisc apt-file whois ptunnel ngrep mtr git zsh mrtg snmp snmpd snmp-mibs-downloader unzip unrar rsyslog debsums rkhunter
+#apt-get -y install build-essential
+#apt-get -y install libio-pty-perl libauthen-pam-perl apt-show-versions
+
+# install essential package
 apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs openvpn vnstat less screen psmisc apt-file whois ptunnel ngrep mtr git zsh mrtg snmp snmpd snmp-mibs-downloader unzip unrar rsyslog debsums rkhunter
 apt-get -y install build-essential
-apt-get -y install libio-pty-perl libauthen-pam-perl apt-show-versions
 
 # disable exim
 service exim4 stop
@@ -162,9 +166,6 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 service stunnel4 restart
 
 cd
-
-#install OpenVPN
-
 # install badvpn
 wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/nexne/ani/master/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
