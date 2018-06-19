@@ -43,8 +43,8 @@ deb http://http.us.debian.org/debian jessie main contrib non-free
 deb http://packages.dotdeb.org jessie all
 deb-src http://packages.dotdeb.org jessie all
 END2
-wget "http://www.dotdeb.org/dotdeb.gpg"
-cat dotdeb.gpg | apt-key add -;rm dotdeb.gpg
+#wget "http://www.dotdeb.org/dotdeb.gpg"
+#cat dotdeb.gpg | apt-key add -;rm dotdeb.gpg
 
 # remove unused
 apt-get -y --purge remove samba*;
