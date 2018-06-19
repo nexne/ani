@@ -65,7 +65,10 @@ apt-get update; apt-get -y upgrade;
 #apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs openvpn vnstat less screen psmisc apt-file whois ptunnel ngrep mtr git zsh mrtg snmp snmpd snmp-mibs-downloader unzip unrar rsyslog debsums rkhunter
 #apt-get -y install build-essential
 #apt-get -y install libio-pty-perl libauthen-pam-perl apt-show-versions
-apt-get -y install nano iptables unzip unrar
+
+apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs openvpn less screen psmisc apt-file whois ptunnel ngrep mtr git zsh unzip unrar rsyslog debsums rkhunter
+apt-get -y install build-essential
+apt-get -y install libio-pty-perl libauthen-pam-perl apt-show-versions
 
 # disable exim
 service exim4 stop
