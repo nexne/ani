@@ -66,8 +66,7 @@ apt-get update; apt-get -y upgrade;
 #apt-get -y install build-essential
 #apt-get -y install libio-pty-perl libauthen-pam-perl apt-show-versions
 
-# install essential package
-apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs openvpn vnstat less screen psmisc apt-file whois ptunnel ngrep mtr git zsh mrtg snmp snmpd snmp-mibs-downloader unzip unrar rsyslog debsums rkhunter
+apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs less screen psmisc apt-file whois ptunnel ngrep mtr git zsh unzip unrar rsyslog debsums rkhunter
 apt-get -y install build-essential
 
 # disable exim
@@ -167,17 +166,9 @@ service stunnel4 restart
 
 cd
 # install badvpn
-#wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/nexne/ani/master/badvpn-udpgw"
-#if [ "$OS" == "x86_64" ]; then
-#  wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/nexne/ani/master/badvpn-udpgw64"
-#fi
-#sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
-#chmod +x /usr/bin/badvpn-udpgw
-#screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300
-
-wget -O /usr/bin/badvpn-udpgw "https://github.com/ForNesiaFreak/FNS/raw/master/sett/badvpn-udpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/nexne/ani/master/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
-  wget -O /usr/bin/badvpn-udpgw "https://github.com/ForNesiaFreak/FNS/raw/master/sett/badvpn-udpgw64"
+  wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/nexne/ani/master/badvpn-udpgw64"
 fi
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
 chmod +x /usr/bin/badvpn-udpgw
