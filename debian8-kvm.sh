@@ -302,8 +302,8 @@ apt-get -y autoremove
 #service nginx start
 #service php5-fpm start
 #service vnstat restart
-service openvpn restart
-service snmpd restart
+#service openvpn restart
+#service snmpd restart
 service ssh restart
 service dropbear restart
 service fail2ban restart
