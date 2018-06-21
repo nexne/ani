@@ -248,7 +248,7 @@ apt-get -y autoremove
 service ssh restart
 service dropbear restart
 service fail2ban restart
-service squid3 restart
+#service squid3 restart
 #service webmin restart
 #service pptpd restart
 sysv-rc-conf rc.local on
@@ -259,7 +259,7 @@ cd /usr/bin
 wget -O usernew "https://raw.githubusercontent.com/nexne/32n64/master/usernew.sh"
 wget -O trial "https://raw.githubusercontent.com/nexne/32n64/master/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/nexne/32n64/master/hapus.sh"
-wget -O login "https://raw.githubusercontent.com/nexne/32n64/master/user-login.sh"
+#wget -O login "https://raw.githubusercontent.com/nexne/32n64/master/user-login.sh"
 wget -O dropmon "https://raw.githubusercontent.com/nexne/32n64/master/dropmon.sh"
 #wget -O user-expired.sh "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/freak/user-expired.sh"
 #wget -O userlimit.sh "https://raw.githubusercontent.com/suryadewa/fornesiavps/fns/limit.sh"
@@ -285,7 +285,7 @@ echo "#* * * * * service dropbear restart" > /etc/cron.d/dropbear
 chmod +x usernew
 chmod +x trial
 chmod +x hapus
-chmod +x login
+#chmod +x login
 chmod +x dropmon
 #chmod +x user-expired
 #chmod +x userlimit.sh
@@ -297,7 +297,7 @@ chmod +x ps-mem
 #chmod +x about
 chmod +x delete
 chmod +x renew
-chmod +x user-expired.sh
+#chmod +x user-expired.sh
 chmod +x kill
 chmod +x ban
 chmod +x unban
