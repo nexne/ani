@@ -151,7 +151,7 @@ refresh_pattern ^ftp: 1440 20% 10080
 refresh_pattern ^gopher: 1440 0% 1440
 refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
 refresh_pattern . 0 20% 4320
-visible_hostname daybreakersx
+visible_hostname private
 END
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
@@ -300,7 +300,7 @@ cd /usr/bin
 wget -O usernew "https://raw.githubusercontent.com/nexne/32n64/master/usernew.sh"
 wget -O trial "https://raw.githubusercontent.com/nexne/32n64/master/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/nexne/32n64/master/hapus.sh"
-wget -O login "https://raw.githubusercontent.com/nexne/32n64/master/user-login.sh"
+#wget -O login "https://raw.githubusercontent.com/nexne/32n64/master/user-login.sh"
 wget -O dropmon "https://raw.githubusercontent.com/nexne/32n64/master/dropmon.sh"
 #wget -O user-expired.sh "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/freak/user-expired.sh"
 #wget -O userlimit.sh "https://raw.githubusercontent.com/suryadewa/fornesiavps/fns/limit.sh"
@@ -308,7 +308,7 @@ wget -O member "https://raw.githubusercontent.com/nexne/32n64/master/user-list.s
 #wget -O restart "https://raw.githubusercontent.com/nexne/32n64/master/resvis.sh"
 #wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
 wget -O bench-network "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/bench-network.sh"
-wget -O ps-mem "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/ps_mem.py"
+#wget -O ps-mem "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/ps_mem.py"
 #wget -O about "https://raw.githubusercontent.com/nexne/32n64/master/about.sh"
 wget -O delete "https://raw.githubusercontent.com/nexne/32n64/master/delete.sh"
 wget -O renew "https://raw.githubusercontent.com/nexne/32n64/master/renew.sh"
@@ -326,19 +326,19 @@ echo "#* * * * * service dropbear restart" > /etc/cron.d/dropbear
 chmod +x usernew
 chmod +x trial
 chmod +x hapus
-chmod +x login
+#chmod +x login
 chmod +x dropmon
 #chmod +x user-expired
 #chmod +x userlimit.sh
 chmod +x member
-chmod +x restart
+#chmod +x restart
 #chmod +x speedtest
 chmod +x bench-network
-chmod +x ps-mem
+#chmod +x ps-mem
 #chmod +x about
 chmod +x delete
 chmod +x renew
-chmod +x user-expired.sh
+#chmod +x user-expired.sh
 chmod +x kill
 chmod +x ban
 chmod +x unban
