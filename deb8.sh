@@ -167,10 +167,12 @@ service squid3 restart
 #update repository
 apt-get install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
+cert = /etc/stunnel/stunnel.pem
+client = no
 socket = a:SO_REUSEADDR=1
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
-client = no
+
 [dropbear]
 connect = 127.0.0.1:995
 accept = 443
@@ -178,18 +180,14 @@ accept = 443
 [dropbear]
 connect = 127.0.0.1:993
 accept = 445
-cert = /etc/stunnel/stunnel.pem
 END
 
 #membuat sertifikat
 openssl genrsa -out key.pem 2048
-openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
--subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
+openssl req -new -x509 -key key.pem -out cert.pem -days 1095
 cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
-
-#konfigurasi stunnel
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-/etc/init.d/stunnel4 restart
+service stunnel4 restart
 
 cd
 # install badvpn
