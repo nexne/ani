@@ -1,6 +1,8 @@
 #!/bin/sh
 # Created by https://www.hostingtermurah.net
 # Modified by 0123456
+# install wget and curl
+apt-get update;apt-get -y install wget curl;
 
 # remove unused
 apt-get -y --purge remove samba*;
