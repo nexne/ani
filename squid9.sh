@@ -4,7 +4,7 @@
 
 #Requirement
 if [ ! -e /usr/bin/curl ]; then
-    apt-get -y update && apt-get -y upgrade
+    apt-get -y update 
 	apt-get -y install curl
 fi
 # initializing var
