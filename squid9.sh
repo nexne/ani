@@ -2,6 +2,40 @@
 # Created by https://www.hostingtermurah.net
 # Modified by 0123456
 
+# remove unused
+apt-get -y --purge remove samba*;
+apt-get -y --purge remove apache2*;
+apt-get -y --purge remove sendmail*;
+apt-get -y --purge remove bind9*;
+apt-get -y purge sendmail*
+apt-get -y remove sendmail*
+
+# update
+apt-get update; apt-get -y upgrade;
+
+# install webserver
+#apt-get -y install nginx php5-fpm php5-cli
+
+# install essential package
+#echo "mrtg mrtg/conf_mods boolean true" | debconf-set-selections
+#apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs less screen psmisc apt-file whois ptunnel ngrep mtr git zsh unzip unrar rsyslog debsums rkhunter
+#apt-get -y install build-essential
+#apt-get -y install libio-pty-perl libauthen-pam-perl apt-show-versions
+
+apt-get -y install bmon iftop htop nmap axel nano iptables traceroute sysv-rc-conf dnsutils bc nethogs less screen psmisc apt-file whois ptunnel ngrep mtr git zsh unzip unrar rsyslog debsums rkhunter
+apt-get -y install build-essential
+
+# disable exim
+service exim4 stop
+sysv-rc-conf exim4 off
+
+# update apt-file
+apt-file update
+
+# setting vnstat
+#vnstat -u -i eth0
+#service vnstat restart
+
 # install screenfetch
 cd
 wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/nexne/ani/master/screenfetch"
