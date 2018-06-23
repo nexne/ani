@@ -2,7 +2,18 @@
 # Created by https://www.hostingtermurah.net
 # Modified by 0123456
 
-#Requirement
+# install screenfetch
+cd
+wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/nexne/ani/master/screenfetch"
+chmod +x /usr/bin/screenfetch
+echo "clear" >> .profile
+echo "screenfetch" >> .profile
+
+cd
+# install fail2ban
+apt-get -y install fail2ban
+service fail2ban restart
+
 # install squid3
 apt-get -y install squid3
 cat > /etc/squid3/squid.conf <<-END
@@ -31,9 +42,6 @@ http_port 8080
 http_port 8000
 http_port 80
 http_port 3128
-http_port 1080
-http_port 3130
-http_port 3000
 coredump_dir /var/spool/squid3
 refresh_pattern ^ftp: 1440 20% 10080
 refresh_pattern ^gopher: 1440 0% 1440
